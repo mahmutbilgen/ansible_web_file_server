@@ -5,3 +5,4 @@
 Bitbucket address:
 ------------------
 https://mahmutbilgen@bitbucket.org/mahmutbilgen/ansible_web_file_server.git
+./tasks/file.yml was updated
