@@ -1,5 +1,5 @@
 ---
-  - name: install and start
+  - name: install and start web server
     yum: 
       name: 
         - "{{ ansible_local.custom.packages.smb_package }}"
