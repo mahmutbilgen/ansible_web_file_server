@@ -3,7 +3,7 @@
     yum: 
       name: 
         - "{{ ansible_local.custom.packages.smb_package }}"
-        - "{{ ansible_local.custom.package.ftp_package }}"
+        - "{{ ansible_local.custom.packages.ftp_package }}"
       state: latest
 
   - name: start samba server
