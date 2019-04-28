@@ -6,7 +6,7 @@
         - "{{ ansible_local.custom.packages.web_package }}"
       state: latest
 
-  - name: start database server
+  - name: start the database and ftp service
     service:
       name: "{{ ansible_local.custom.services.db_service }}"
       state: started
