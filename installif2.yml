@@ -1,0 +1,23 @@
+---
+- hosts: all
+  tasks:
+    - name: check mariadb status
+      command: /usr/bin/systemctl is-active mariadb
+      ignore_errors: yes # continue running, even if mariadb is not running, because this playbook
+                         # is going to act upon the result of this command. It might do something
+                         # even if mariadb current is NOT 
+      register: result  # this saves information about the result
+       
+    - name: install http if mariadb is active
+      yum:
+        name: httpd
+        state: installed
+      when: result.rc == 0 # this values the output of the check task and will only
+                            # restart if the exit code of the systemctl command is 0
+                            # notice the indentation level of the when statement
+    - name: start httpd
+      service:
+        name: httpd
+        state: started
+                         
+ 
