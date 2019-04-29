@@ -23,7 +23,7 @@
     - name: include the tasks
       include: tasks/lamp.yml
 
-    - name: open the port for the web server
+    - name: open the port for the {{ ansible_local.custom.services.smb_service }} web server
       firewalld:
         service: http
         state: enabled
@@ -43,17 +43,17 @@
     - name: include the tasks
       include: tasks/file.yml
   
-    - name: open the port for the ftp service
+    - name: open the port for the {{ ansible_local.custom.services.ftp_service }}ftp service
       firewalld:
         service: ftp
-        state: ftp
+        state: enabled
         immediate: true
         permanent: true
 
 
     - name: open the port for the smb service
       firewalld:
-        service: smb
+        service: samba
         state: enabled
         immediate: true
         permanent: true
